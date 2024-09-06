@@ -1,6 +1,10 @@
-import { legacy_createStore } from "redux";
-import reducer from "../reducer/auth-reducer";
+import { createStore, combineReducers } from 'redux';
+import userReducer from '../reducer/useReducer';
 
-const store = legacy_createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const rootReducer = combineReducers({
+  user: userReducer
+});
 
-export {store}
+const store = createStore(rootReducer);
+
+export { store }; // Bu yerda store eksport qilinadi

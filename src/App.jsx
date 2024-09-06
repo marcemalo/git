@@ -1,15 +1,18 @@
-
-import './App.css'
-import RouteController from './routes'
-
-function App() {
+import React from 'react';
+import { Provider } from 'react-redux';
+import { store } from './redux/store/store.js';
 
 
-  return (
-    <>
-      <RouteController/>
-    </>
-  )
-}
+import Login from './routes/Login.jsx';
+import Profile from './routes/Profile.jsx';
 
-export default App
+const App = () => (
+  <Provider store={store}>
+    <div>
+     <Login/>
+      <Profile/>
+    </div>
+  </Provider>
+);
+
+export default App;
